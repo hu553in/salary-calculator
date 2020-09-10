@@ -9,7 +9,8 @@ At the moment, there's only backend part of the project.
 
 ## Tech stack
 
-* Spring Boot 2.3.3
+* Kotlin
+* Spring Boot
 * MongoDB
 
 ## How to use
