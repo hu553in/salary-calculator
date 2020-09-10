@@ -4,7 +4,13 @@
 
 This project is a simple client-server app for calculating salary of
 different employee types using different formulas.\
-The purpose of this project is to learn layered client-server app architecture.
+The purpose of this project is to learn layered client-server app architecture.\
+At the moment, there's only backend part of the project.
+
+## Tech stack
+
+* Spring Boot 2.3.3
+* MongoDB
 
 ## How to use
 
