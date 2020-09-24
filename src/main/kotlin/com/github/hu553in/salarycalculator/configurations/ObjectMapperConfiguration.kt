@@ -1,4 +1,4 @@
-package com.github.hu553in.salarycalculator.core.configurations
+package com.github.hu553in.salarycalculator.configurations
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper

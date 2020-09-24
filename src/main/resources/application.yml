@@ -2,6 +2,21 @@ server:
   port: 8080
 
 spring:
-  data:
-    mongodb:
-      uri: ${MONGO_URI}
+  data-source:
+    salary-calculator:
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbc-url: ${POSTGRESQL_JDBC_URL}
+      username: ${POSTGRESQL_USERNAME}
+      password: ${POSTGRESQL_PASSWORD}
+      test-on-borrow: true
+      remove-abandoned: true
+      validation-query: 'SELECT 1'
+      driver-class-name: org.postgresql.Driver
+
+employee-types:
+  - type: worker
+    salary-formula: $monthly_completed_details * $rank * 100
+  - type: manager
+    salary-formula: $salary + $montly_completed_transactions * 100
+  - type: engineer
+    salary-formula: $salary + $months_of_work * 300

@@ -1,6 +1,6 @@
-package com.github.hu553in.salarycalculator.core.services
+package com.github.hu553in.salarycalculator.services
 
-import com.github.hu553in.salarycalculator.core.exceptions.ServiceException
+import com.github.hu553in.salarycalculator.exceptions.ServiceException
 import org.springframework.stereotype.Service
 
 @Service
