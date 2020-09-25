@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @ConfigurationProperties(prefix = "employee-types")
 class EmployeeTypesConfiguration {
-    private val employeeTypes: List<EmployeeType> = mutableListOf()
+    val types: List<EmployeeType> = mutableListOf()
 
     @Bean
-    fun employeeTypes() = employeeTypes
+    fun employeeTypes() = types
 }

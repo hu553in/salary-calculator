@@ -10,13 +10,14 @@ spring:
       password: ${POSTGRESQL_PASSWORD}
       test-on-borrow: true
       remove-abandoned: true
-      validation-query: 'SELECT 1'
+      validation-query: 'select 1;'
       driver-class-name: org.postgresql.Driver
 
 employee-types:
-  - type: worker
-    salary-formula: $monthly_completed_details * $rank * 100
-  - type: manager
-    salary-formula: $salary + $montly_completed_transactions * 100
-  - type: engineer
-    salary-formula: $salary + $months_of_work * 300
+  types:
+    - type: worker
+      salary-formula: monthly_completed_details * rank * 100
+    - type: manager
+      salary-formula: base_salary + monthly_completed_transactions * 100
+    - type: engineer
+      salary-formula: base_salary + years_of_work * 1000

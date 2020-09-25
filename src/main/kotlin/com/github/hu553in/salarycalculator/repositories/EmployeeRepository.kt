@@ -4,11 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.hu553in.salarycalculator.entities.Employee
 import com.github.hu553in.salarycalculator.exceptions.RepositoryException
 import org.springframework.jdbc.core.JdbcOperations
+import org.springframework.stereotype.Repository
 
+@Repository
 class EmployeeRepository(
         private val jdbcOperations: JdbcOperations,
         private val objectMapper: ObjectMapper
 ) : IEmployeeRepository {
+    @Throws(RepositoryException::class)
     override fun getById(id: String): Employee? = try {
         val query = "SELECT document FROM employees WHERE document->>'id' = ?"
         jdbcOperations.query(query, arrayOf(id)) { rs, _ ->
