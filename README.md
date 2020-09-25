@@ -2,10 +2,10 @@
 
 ## Description
 
-This project is a simple client-server app for calculating salary of
+This project is a simple server-side app for calculating salary of
 different employee types using different formulas.\
-The purpose of this project is to learn layered client-server app architecture.\
-At the moment, there's only backend part of the project.
+The purpose of this project is to learn layered architecture and testing.
+
 
 ## Tech stack
 
