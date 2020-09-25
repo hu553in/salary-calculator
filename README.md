@@ -16,4 +16,4 @@ At the moment, there's only backend part of the project.
 ## How to use
 
 1. Install `GNU Make`, `Docker`, `Docker Compose`, `OpenJDK` (≥ 11)
-2. Run `make` in the project root directory
+2. Run `make` to run the app (or `make test` to run tests instead) in the project root directory
