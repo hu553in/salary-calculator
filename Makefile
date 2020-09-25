@@ -8,3 +8,7 @@ build:
 .PHONY: run
 run:
 	docker-compose up --build
+
+.PHONY: test
+test:
+	./gradlew test
