@@ -6,7 +6,6 @@ This project is a simple server-side app for calculating salary of
 different employee types using different formulas.\
 The purpose of this project is to learn layered architecture and testing.
 
-
 ## Tech stack
 
 * Kotlin
