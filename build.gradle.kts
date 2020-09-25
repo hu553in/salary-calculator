@@ -31,8 +31,10 @@ dependencies {
 	implementation("net.objecthunter:exp4j:0.4.8")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+	testImplementation("io.mockk:mockk:1.10.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude("org.junit.vintage:junit-vintage-engine")
+		exclude(module = "mockito-core")
 	}
 }
 

@@ -43,6 +43,9 @@ class CalculateSalaryService(
                 }
                 .evaluate()
     } catch (t: Throwable) {
+        if (t::class is Exception) {
+            throw t
+        }
         throw ServiceException("Unable to calculate salary because of: ${t.message}", t)
     }
 }
