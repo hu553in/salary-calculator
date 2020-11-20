@@ -16,6 +16,8 @@ some types of testing.
 
 ## How to run
 
+### Docker
+
 1. Install `GNU Make`, `Docker`, `Docker Compose`, `OpenJDK` (≥ 11)
 2. Create a relative symlink to [the GUI](https://github.com/hu553in/salary-calculator-gui)
 named `./gui` (e.g. `ln -rs ../salary-calculator-gui ./gui`)
