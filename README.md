@@ -2,17 +2,22 @@
 
 ## Description
 
-This project is a simple server-side app for calculating salary of
+This project is a simple client-server app for calculating salary of
 different employee types using different formulas.\
-The purpose of this project is to learn layered architecture and testing.
+The purpose of this project is to learn layered architecture and
+some types of testing.
 
 ## Tech stack
 
 * Kotlin
 * Spring Boot
+* React
 * PostgreSQL
+* nginx
 
-## How to use
+## How to run
 
 1. Install `GNU Make`, `Docker`, `Docker Compose`, `OpenJDK` (≥ 11)
-2. Run `make` to run the app (or `make test` to run tests instead) in the project root directory
+2. Create a relative symlink to [GUI](https://github.com/hu553in/salary-calculator-gui)
+named `./gui` (e.g. `ln -rs ../salary-calculator-gui ./gui`)
+3. Run `make` to run the app (or `make test` to run tests instead)

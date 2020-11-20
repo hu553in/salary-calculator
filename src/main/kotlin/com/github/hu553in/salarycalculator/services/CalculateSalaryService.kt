@@ -17,7 +17,7 @@ class CalculateSalaryService(
     @Throws(ServiceException::class)
     override fun calculate(employeeId: String): Double = try {
         val employee = employeeRepository.getById(employeeId)
-                ?: throw Exception("Unable to get employee by ID '$employeeId")
+                ?: throw Exception("Unable to get employee by ID '$employeeId'")
         val salaryFormula = employeeTypesService.getSalaryFormulaByType(employee.type)
                 ?: throw Exception("Unable to find salary formula by employee type '${employee.type}'")
         val variableNames = extractVariableNamesRegex.findAll(salaryFormula).map { it.value }.toSet()

@@ -1,15 +1,31 @@
 version: "3.8"
 
 services:
+  server:
+    image: nginx:alpine
+    container_name: server
+    restart: unless-stopped
+    depends_on:
+      - api
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d:ro
+    networks:
+      - salary_calculator_tier
+    ports:
+      - "9920:9920"
   db:
     image: postgres:12-alpine
+    container_name: db
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: postgres_password
     networks:
       - salary_calculator_tier
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/api.dockerfile
+    container_name: api
     restart: unless-stopped
     volumes:
       - ./build/libs/salary-calculator-1.0.0.jar:/opt/app.jar
@@ -22,6 +38,28 @@ services:
       POSTGRESQL_PASSWORD: postgres_password
     depends_on:
       - db
+    networks:
+      - salary_calculator_tier
+  ui:
+    build:
+      context: .
+      dockerfile: ./docker/ui.dockerfile
+    container_name: ui
+    restart: unless-stopped
+    depends_on:
+      - api
+    volumes:
+      - ./gui:/opt/salary_calculator
+    working_dir: /opt/salary_calculator
+    user: salary_calculator
+    ports:
+      - "3000:3000"
+    command: >
+      sh -c '
+        chown -R salary_calculator:salary_calculator . &&
+        yarn &&
+        yarn start
+      '
     networks:
       - salary_calculator_tier
 

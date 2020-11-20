@@ -1,5 +1,5 @@
 **/.gradle
-**/build/
+**/build
 !**/gradle/wrapper/gradle-wrapper.jar
 **/.apt_generated
 **/.classpath
@@ -12,6 +12,6 @@
 *.iws
 *.iml
 *.ipr
-**/out/
-**/.vscode/
-**/docker/mongodb/home
+**/out
+**/.vscode
+**/gui
