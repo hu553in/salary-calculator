@@ -9,6 +9,10 @@ build:
 run:
 	docker-compose up --build
 
-.PHONY: test
-test:
+.PHONY: runTestsBackend
+runTestsBackend:
 	./gradlew test
+
+.PHONY: runTestsFrontend
+runTestsFrontend:
+	docker-compose exec ui sh -c 'npx npx wdio run ./wdio.conf.js'
