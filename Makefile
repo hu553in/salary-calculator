@@ -15,4 +15,5 @@ runTestsBackend:
 
 .PHONY: runTestsFrontend
 runTestsFrontend:
+	rm -rf ./gui/allure-results
 	docker-compose exec ui sh -c 'npx npx wdio run ./wdio.conf.js'
