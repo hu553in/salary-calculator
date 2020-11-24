@@ -7,9 +7,9 @@ RUN useradd -u 1000 -ms /bin/bash -g salary_calculator salary_calculator
 
 RUN npm i -g npm
 
-ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" \
->> /etc/apt/sources.list.d/google-chrome-temp.list'
-RUN apt-get update && apt-get install -qy yarn google-chrome-stable
-RUN rm -rf /etc/apt/sources.list.d/google-chrome-temp.list
+RUN apt-get update && apt-get -qy install libnss3 openjdk-8-jdk
+ARG CHROME_VERSION=87.0.4280.66-1
+RUN wget --no-check-certificate \
+https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
+RUN dpkg -i google-chrome-stable_${CHROME_VERSION}_amd64.deb || apt-get -fqy install
+RUN rm -rf google-chrome-stable_${CHROME_VERSION}_amd64.deb

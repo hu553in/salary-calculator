@@ -48,6 +48,8 @@ services:
       - api
     volumes:
       - ./gui:/opt/salary_calculator
+    environment:
+      REACT_APP_API_URL: http://localhost:9920
     working_dir: /opt/salary_calculator
     user: salary_calculator
     ports:
