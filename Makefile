@@ -22,6 +22,6 @@ testFrontend:
 testEndToEnd:
 	rm -rf ./gui/allure-results
 	docker-compose exec ui sh -c '\
-	  /opt/e2e-testing-proxy &\
+	  /opt/http-reverse-proxy :9920 http://server:9920 &\
 	  yarn test\
 	'
