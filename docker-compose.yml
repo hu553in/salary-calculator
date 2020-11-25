@@ -47,6 +47,7 @@ services:
     depends_on:
       - api
     volumes:
+      - ./docker/e2e-testing-proxy:/opt/e2e-testing-proxy:ro
       - ./gui:/opt/salary_calculator
     environment:
       REACT_APP_API_URL: http://localhost:9920

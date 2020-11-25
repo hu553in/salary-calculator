@@ -9,11 +9,19 @@ build:
 run:
 	docker-compose up --build
 
-.PHONY: runTestsBackend
-runTestsBackend:
+.PHONY: testBackend
+testBackend:
 	./gradlew test
 
-.PHONY: runTestsFrontend
-runTestsFrontend:
+.PHONY: testFrontend
+testFrontend:
 	rm -rf ./gui/allure-results
-	docker-compose exec ui sh -c 'yarn test'
+	docker-compose exec ui sh -c 'yarn testMocks'
+
+.PHONY: testEndToEnd
+testEndToEnd:
+	rm -rf ./gui/allure-results
+	docker-compose exec ui sh -c '\
+	  /opt/e2e-testing-proxy &\
+	  yarn test\
+	'

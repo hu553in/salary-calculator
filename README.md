@@ -22,7 +22,9 @@ some types of testing.
 2. Create a relative symlink to [the GUI](https://github.com/hu553in/salary-calculator-gui)
 named `./gui` (e.g. `ln -rs ../salary-calculator-gui ./gui`)
 3. Run `make` to run the app
-4. Run `make runTestsBackend` in the another terminal window
+4. Run `make testBackend` in the another terminal window
 in case if you want to run backend unit tests
-5. Run `make runTestsFrontend` in the another terminal window
-in case if you want to run frontend integration (end-to-end) tests
+5. Run `make testFrontend` in the another terminal window
+in case if you want to run UI tests with a mock API
+6. Run `make testEndToEnd` in the another terminal window
+in case if you want to run integration (end-to-end) tests with a real API
